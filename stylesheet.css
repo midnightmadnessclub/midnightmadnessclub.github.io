@@ -1,10 +1,10 @@
 @font-face {
-    font-family: Delicious;
+    font-family: Simplicity;
     src: url('Simplicity.otf');
-} 
+}
 
 body {
-    font-family: 'Gothic A1', sans-serif;
+    font-family: Simplicity;
     background-color: #1b1b1b;
     color: #f5f5f5;
     margin: 0;
