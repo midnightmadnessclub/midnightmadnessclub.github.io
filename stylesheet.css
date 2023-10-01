@@ -63,8 +63,12 @@ h2 {
 
 /* Performers */
 .performer {
-    display: flex;
-    margin-bottom: 1rem;
+    display: grid;
+    grid-gap: 20px;
+    justify-content: center;
+    grid-template-columns: repeat(3, calc(33.33% - 20px));
+    text-align: center;
+    margin: 0 1rem;
 }
 
     .performer img {
