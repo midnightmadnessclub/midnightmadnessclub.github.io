@@ -26,8 +26,6 @@ function changeSlide(n, btnElement) {
     slideshow.timer = setTimeout(() => {
         changeSlide(1, btnElement);
     }, duration);
-
-    console.log(`Changing slide for slideshow ${slideshowId} to slide ${slideIndex[slideshowId]}`);
 }
 
 // Initialize slideshows
@@ -36,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     Array.from(slideshows).forEach((slideshow, index) => {
         slideshow.dataset.id = index;
-        slideIndex[index] = 1; // Set the initial slide index
-        slideshows[index].querySelector('.slide').style.display = "block"; // Show the first slide
+        changeSlide(0, slideshow.querySelector('.next'));
     });
 });
