@@ -137,8 +137,12 @@ td {
 
 .slide img, .slide video {
     width: 100%;
-    display: none; /* initially hide all slides */
 }
+
+.slide:not(:first-child) img, .slide:not(:first-child) video {
+    display: none;
+}
+
 
 .prev, .next {
     position: absolute;
