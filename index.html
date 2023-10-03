@@ -1,328 +1,41 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Midnight Madness - Mistress of the Dark</title>
     <link rel="stylesheet" href="stylesheet.css">
+    <title>Midnight Madness</title>
 </head>
-
 <body>
+    <button id="menu-toggle">☰</button>
+    <nav id="main-nav">
+        <button id="menu-close">X</button>
+        <ul>
+            <li><a href="#nowplaying">Now Playing</a></li>
+            <li><a href="#tickets">Tickets</a></li>
+            <li><a href="#venue">Venue</a></li>
+            <li><a href="#functions">Functions</a></li>
+            <li><a href="#photosvideos">Photos/Videos</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <header>
         <h1>Midnight Madness</h1>
-        <p>Step into the world of Midnight Madness!</p>
-        <nav>
-            <a href="#venue">Location</a>
-            <a href="#menu">Drinks Menu</a>
-            <a href="#performers">Performances</a>
-            <a href="#music">Music</a>
-            <a href="#dress-code">Dress Code</a>
-            <a href="#social">Socials</a>
-        </nav>
     </header>
 
-    <!-- Venue Information -->
-    <section id="venue">
-        <h2>Location</h2>
-        <h3>The Soda Factory</h3>
-        <p>16 Wentworth Avenue, Surry Hills, NSW, 2010</p>
-        <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13249.795148063142!2d151.2118178036132!3d-33.87809389052889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae17b8f4a67f%3A0xd3542122074f4089!2s16%20Wentworth%20Ave%2C%20Surry%20Hills%20NSW%202010!5e0!3m2!1sen!2sau!4v1696087242392!5m2!1sen!2sau" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <!-- <div class="slideshow">
-
-        <!--</div> -->
+    <section>
+        <p>Join us for an unforgettable evening as we present "Mistress Of The Dark" the gothic night experience...</p>
+        <img src="images/placeholder.png" alt="Event Image" id="slideshow">
     </section>
 
-    <!-- Drinks Menu Section -->
-    <section id="menu">
-        <h2>Drinks Menu</h2>
+    <footer>
+        <a href="#"><img src="images/icons/instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="images/icons/tiktok.png" alt="Tiktok"></a>
+        <a href="#"><img src="images/icons/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="images/icons/twitterBird.png" alt="Twitter"></a>
+    </footer>
 
-        <h3>7 Deadly Sins (Cocktails)</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Lust</td>
-                    <td>Cocktail Description</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Gluttony</td>
-                    <td>Cocktail Description</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Greed</td>
-                    <td>Cocktail Description</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Sloth</td>
-                    <td>Cocktail Description</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Wrath</td>
-                    <td>Cocktail Description</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Envy</td>
-                    <td>Cocktail Description</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Pride</td>
-                    <td>Cocktail Description</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>Blood Bank (Shots)</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>O+</td>
-                    <td>Vodka</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>O-</td>
-                    <td>Tequilla</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>A+</td>
-                    <td>Fireball</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>A-</td>
-                    <td>Spiced Rum</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>B+</td>
-                    <td>Gin</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>B-</td>
-                    <td>Absinth</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>AB+</td>
-                    <td>Shot Description</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>AB-</td>
-                    <td>Shot Description</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <!-- Performers Section -->
-    <section id="performers">
-        <h2>Performers</h2>
-
-        <!-- Pole Dancers Section -->
-        <section class="performance-type pole-dancers">
-            <h3>Pole Dancers</h3>
-            <div class="performer">
-
-                <!-- Angel -->
-                <div class="dancer">
-                    <div class="slideshow">
-                        <div class="slide">
-                            <img src="./images/djSet/TheCure.jpg" alt="Angel's Photo">
-                        </div>
-                        <div class="slide">
-                            <img src="./images/placeholder.png" alt="Angel's Photo">
-                        </div>
-                        <div class="slide">
-                            <img src="./images/djSet/Lebanon.jpg" alt="Angel's Photo">
-                        </div>
-                        <button class="prev" onclick="changeSlide(-1, this)">❮</button>
-                        <button class="next" onclick="changeSlide(1, this)">❯</button>
-                    </div>
-                    <h4>Angel</h4>
-                    <div class="performerSocial">
-                        <a href="https://www.instagram.com/defsn0tangel/">
-                            <img src="./images/icons/instagram.png" alt="Instagram">
-                            <p>@defsn0tangel</p>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Emma -->
-                <div class="dancer">
-                    <div class="slideshow">
-                        <div class="slide">
-                            <img src="./images/placeholder.png" alt="Emma's Photo">
-                        </div>
-                        <button class="prev" onclick="changeSlide(-1, this)">❮</button>
-                        <button class="next" onclick="changeSlide(1, this)">❯</button>
-                    </div>
-                    <h4>Emma</h4>
-                </div>
-
-                <!-- Tay -->
-                <div class="dancer">
-                    <div class="slideshow">
-                        <div class="slide">
-                            <img src="./images/placeholder.png" alt="Tay's Photo">
-                        </div>
-                        <button class="prev" onclick="changeSlide(-1, this)">❮</button>
-                        <button class="next" onclick="changeSlide(1, this)">❯</button>
-                    </div>
-                    <h4>Tay</h4>
-                    <div class="performerSocial">
-                        <a href="https://www.instagram.com/dollonapole/">
-                            <img src="./images/icons/instagram.png" alt="Instagram">
-                            <p>@dollonapole</p>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Jess -->
-                <div class="dancer">
-                    <div class="slideshow">
-                        <div class="slide">
-                            <img src="./images/placeholder.png" alt="Jess's Photo">
-                        </div>
-                        <button class="prev" onclick="changeSlide(-1, this)">❮</button>
-                        <button class="next" onclick="changeSlide(1, this)">❯</button>
-                    </div>
-                    <h4>Jess</h4>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Belly Dancers -->
-        <section class="performance-type">
-            <h3>Bellydancers</h3>
-
-            <!-- Jessyka -->
-            <div class="dancer">
-                <div class="slideshow">
-                    <div class="slide">
-                        <img src="./images/placeholder.png" alt="Jessyka's Photo">
-                    </div>
-                    <button class="prev" onclick="changeSlide(-1, this)">❮</button>
-                    <button class="next" onclick="changeSlide(1, this)">❯</button>
-                </div>
-                <h4>Jessyka</h4>
-                <div class="performerSocial">
-                    <a href="https://www.instagram.com/Jessyka_bellydancer/">
-                        <img src="./images/icons/instagram.png" alt="Instagram">
-                        <p>@Jessyka_bellydancer</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Burlesque Performers -->
-        <section class="performance-type">
-            <h3>Burlesque Performers</h3>
-
-            <!-- Jackel -->
-            <div class="dancer">
-                <div class="slideshow">
-                    <div class="slide">
-                        <img src="./images/placeholder.png" alt="Jackel's Photo">
-                    </div>
-                    <button class="prev" onclick="changeSlide(-1, this)">❮</button>
-                    <button class="next" onclick="changeSlide(1, this)">❯</button>
-                </div>
-                <h4>Jackel</h4>
-                <div class="performerSocial">
-                    <a href="https://www.instagram.com/jackellovesyou/">
-                        <img src="./images/icons/instagram.png" alt="Instagram">
-                        <p>@jackellovesyou</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </section>
-
-
-
-
-    <!-- Music Section -->
-    <section id="music">
-        <h2>Music Included:</h2>
-        <div class="artist">
-            <img src="./images/placeholder.png" alt="Artist/Band Name">
-            <p>Artist/Band Name</p>
-        </div>
-        <!-- Placeholder for more artists/bands -->
-    </section>
-
-    <!-- Dress Code -->
-    <section id="dress-code">
-        <div class="dress-code">
-            <h2>Dress Code</h2>
-        </div>
-    </section>
-
-    <!-- Social Links -->
-    <section id="social">
-        <h2>Social Links</h2>
-        <div class="social">
-            <!-- This is the parent container -->
-            <div class="social-item">
-                <a href="https://www.instagram.com/midnightmadness.666/">
-                    <img src="./images/icons/instagram.png" alt="Instagram">
-                    <p>@midnightmadness.666</p>
-                </a>
-            </div>
-            <div class="social-item">
-                <a href="https://www.instagram.com/midnightmadness.666/">
-                    <img src="./images/icons/facebook.png" alt="Facebook">
-                    <p>@?</p>
-                </a>
-            </div>
-            <div class="social-item">
-                <a href="">
-                    <img src="./images/icons/twitterBird.png" alt="Twitter">
-                    <p>@?</p>
-                </a>
-            </div>
-            <div class="social-item">
-                <a href="https://www.tiktok.com/@midnightmadness.666">
-                    <img src="./images/icons/tiktok.png" alt="TikTok">
-                    <p>@midnightmadness.666</p>
-                </a>
-            </div>
-        </div>
-        <!-- Placeholder for more social links -->
-    </section>
-
-
-    <script src="./scripts/slideshow.js"></script>
-
+    <script src="scripts/menu.js"></script>
 </body>
-
 </html>
