@@ -13,8 +13,6 @@
 :root {
     --primary-color: #c40414;
     --background-color: black;
-    --font-family-main: 'Alice', sans-serif;
-    --font-family-heading: 'Simplicity', sans-serif;
 }
 
 /* Base Styles */
@@ -23,10 +21,10 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: var(--font-family-main);
+    font-family: 'Alice', sans-serif;
     background-color: var(--background-color);
     color: var(--primary-color);
-    caret-color: var(--background-color);
+    overflow: hidden;
 }
 
 /* Menu Toggle & Close */
@@ -88,14 +86,14 @@ html, body {
 /* Full-Page Image */
 #slideshow {
     position: absolute;
-    top: 100px;
+    top: 0;
     left: 0;
     width: 100%;
-    bottom: 60px;
+    height: calc(100% - 60px); /* Adjust based on footer height */
     object-fit: cover;
 }
 
-/* Footer Social Links */
+/* Footer with Social Media Links */
 footer {
     position: fixed;
     bottom: 0;
@@ -104,30 +102,20 @@ footer {
     justify-content: center;
     align-items: center;
     padding: 20px 0;
-    height: 60px;
     background-color: var(--background-color);
 }
 
-footer a img {
-    width: 50px;
-    height: 50px;
-    margin: 0 20px;
-}
-
-/* Mobile Optimisation */
-@media only screen and (max-width: 768px) {
-    #menu-toggle, #menu-close {
-        font-size: 28px;
-    }
-
-    #slideshow {
-        top: 50px; /* Adjust for mobile navigation height */
-        height: calc(100% - 50px);
-    }
-
     footer a img {
-        width: 40px;
-        height: 40px;
-        margin: 0 15px;
+        width: 50px;
+        height: 50px;
+        margin: 0 20px;
+    }
+
+/* Desktop Specific Styles */
+@media only screen and (min-width: 1024px) {
+    #slideshow {
+        width: 75%;
+        left: 12.5%;
+        height: 100%;
     }
 }
