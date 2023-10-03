@@ -1,46 +1,4 @@
-/* For Mobile Optimisation */
-@media only screen and (max-width: 768px) {
-    body {
-        font-size: 22px; /* #c40414uced size for mobile */
-    }
-
-    header h1 {
-        font-size: 38px;
-    }
-
-    #menu-close {
-        font-size: 28px;
-    }
-
-    #menu-toggle {
-        font-size: 28px;
-    }
-
-    #slideshow {
-        max-width: 100%;
-    }
-
-    footer a img {
-        width: 40px;
-        height: 40px;
-        margin: 0 15px;
-    }
-}
-
-html
-{
-    caret-color: black;
-}
-
-body {
-    font-family: 'Alice', sans-serif;
-    background-color: black;
-    color: #c40414;
-    font-size: 28px;
-    margin: 0;
-    padding: 0;
-}
-
+/* Fonts */
 @font-face {
     font-family: Simplicity;
     src: url('./fonts/Simplicity.otf');
@@ -51,26 +9,63 @@ body {
     src: url('./fonts/Alice.ttf');
 }
 
+/* CSS Variables */
+:root {
+    --primary-color: #c40414;
+    --background-color: black;
+    --font-family-main: 'Alice', sans-serif;
+    --font-family-heading: 'Simplicity', sans-serif;
+}
+
+/* Base Styles */
+html {
+    caret-color: var(--background-color);
+}
+
+body {
+    font-family: var(--font-family-main);
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
 header h1 {
-    font-family: 'Simplicity', sans-serif;
-    letter-spacing: 3px; /* Spread out the letters */
+    font-family: var(--font-family-heading);
+    letter-spacing: 3px;
     text-align: center;
-    font-size: 64px; /* Larger for the heading */
+    font-size: 64px;
     margin-top: 20px;
 }
 
-#menu-toggle {
+/* Menu Toggle & Close */
+#menu-toggle, #menu-close {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    background: black;
-    color: #c40414;
+    background: var(--background-color);
+    color: var(--primary-color);
     border: none;
     font-size: 50px;
     padding: 10px;
     cursor: pointer;
 }
 
+#menu-toggle {
+    top: 10px;
+    left: 10px;
+}
+
+#menu-close {
+    top: 10px;
+    right: 10px;
+}
+
+    #menu-close:focus {
+        outline: none;
+    }
+
+/* Main Nav */
 #main-nav {
     display: none;
     position: fixed;
@@ -78,7 +73,7 @@ header h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: var(--background-color);
     z-index: 1000;
     font-size: 50px;
 }
@@ -99,9 +94,26 @@ header h1 {
 
             #main-nav ul li a {
                 text-decoration: none;
-                color: #c40414;
+                color: var(--primary-color);
             }
 
+/* Main Menu Page */
+#main-menu-page {
+    text-align: center;
+    margin: 20px 0;
+    color: white;
+    font-size: 38px;
+    letter-spacing: 3px;
+}
+
+/* Slideshow */
+#slideshow {
+    display: block;
+    margin: 20px auto;
+    max-width: 25%;
+}
+
+/* Footer */
 footer {
     display: flex;
     justify-content: center;
@@ -110,43 +122,32 @@ footer {
 }
 
     footer a img {
-        width: 30px;
-        height: 30px;
-        margin: 0 10px;
+        width: 50px;
+        height: 50px;
+        margin: 0 20px;
     }
 
-#menu-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: black;
-    color: #c40414;
-    border: none;
-    font-size: 50px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-    #menu-close:focus {
-        outline: none;
+/* Mobile Optimisation */
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 22px;
     }
 
-#main-menu-page {
-    text-align: center; /* This will center the text inside the section */
-    margin: 20px 0;
-    color: white;
-    font-size: 38px;
-   letter-spacing: 3px; 
-}
+    header h1 {
+        font-size: 38px;
+    }
 
-#slideshow {
-    display: block;
-    margin: 20px auto; /* This will center the image (slideshow) */
-    max-width: 25%;
-}
+    #menu-close, #menu-toggle {
+        font-size: 28px;
+    }
 
-footer a img {
-    width: 50px;
-    height: 50px;
-    margin: 0 20px;
+    #slideshow {
+        max-width: 100%;
+    }
+
+    footer a img {
+        width: 40px;
+        height: 40px;
+        margin: 0 15px;
+    }
 }
