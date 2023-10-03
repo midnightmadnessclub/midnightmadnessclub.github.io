@@ -90,7 +90,9 @@ html, body {
     left: 0;
     width: 100%;
     height: calc(100% - 60px); /* Adjust based on footer height */
-    object-fit: cover;
+    object-fit: contain; /* Ensure entire image is visible */
+    object-position: center; /* Center the image within its container */
+    background-color: #000; /* Provide a background in case image doesn't cover the whole area */
 }
 
 /* Footer with Social Media Links */
