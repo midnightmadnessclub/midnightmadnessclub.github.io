@@ -1,7 +1,12 @@
+html
+{
+    caret-color: black;
+}
+
 body {
     font-family: 'Alice', sans-serif;
     background-color: black;
-    color: red;
+    color: #c40414;
     font-size: 28px;
     margin: 0;
     padding: 0;
@@ -30,9 +35,9 @@ header h1 {
     top: 10px;
     left: 10px;
     background: black;
-    color: red;
+    color: #c40414;
     border: none;
-    font-size: 28px;
+    font-size: 50px;
     padding: 10px;
     cursor: pointer;
 }
@@ -64,7 +69,7 @@ header h1 {
 
             #main-nav ul li a {
                 text-decoration: none;
-                color: red;
+                color: #c40414;
             }
 
 footer {
@@ -83,7 +88,7 @@ footer {
 /* For Mobile Optimisation */
 @media only screen and (max-width: 768px) {
     body {
-        font-size: 22px; /* Reduced size for mobile */
+        font-size: 22px; /* #c40414uced size for mobile */
     }
 
     header h1 {
@@ -96,7 +101,7 @@ footer {
     top: 10px;
     right: 10px;
     background: black;
-    color: red;
+    color: #c40414;
     border: none;
     font-size: 28px;
     padding: 10px;
@@ -107,15 +112,18 @@ footer {
         outline: none;
     }
 
-section {
+#main-menu-page {
     text-align: center; /* This will center the text inside the section */
     margin: 20px 0;
     color: white;
+    font-size: 38px;
+   letter-spacing: 3px; 
 }
 
 #slideshow {
     display: block;
     margin: 20px auto; /* This will center the image (slideshow) */
+    max-width: 25%;
 }
 
 footer a img {
