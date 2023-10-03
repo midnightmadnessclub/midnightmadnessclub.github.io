@@ -41,6 +41,7 @@ html, body {
 
 #menu-toggle {
     left: 10px;
+    z-index: 10;
 }
 
 #menu-close {
@@ -93,6 +94,7 @@ html, body {
     object-fit: contain; /* Ensure entire image is visible */
     object-position: center; /* Center the image within its container */
     background-color: #000; /* Provide a background in case image doesn't cover the whole area */
+    z-index: 1;
 }
 
 /* Footer with Social Media Links */
