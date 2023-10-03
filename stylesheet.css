@@ -1,3 +1,32 @@
+/* For Mobile Optimisation */
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 22px; /* #c40414uced size for mobile */
+    }
+
+    header h1 {
+        font-size: 38px;
+    }
+
+    #menu-close {
+        font-size: 28px;
+    }
+
+    #menu-toggle {
+        font-size: 28px;
+    }
+
+    #slideshow {
+        max-width: 100%;
+    }
+
+    footer a img {
+        width: 40px;
+        height: 40px;
+        margin: 0 15px;
+    }
+}
+
 html
 {
     caret-color: black;
@@ -86,29 +115,6 @@ footer {
         margin: 0 10px;
     }
 
-/* For Mobile Optimisation */
-@media only screen and (max-width: 768px) {
-    body {
-        font-size: 22px; /* #c40414uced size for mobile */
-    }
-
-    header h1 {
-        font-size: 48px;
-    }
-
-    #menu-close {
-        font-size: 28px;
-    }
-
-    #menu-toggle {
-        font-size: 28px;
-    }
-
-    #slideshow {
-        max-width: 50%;
-    }
-}
-
 #menu-close {
     position: absolute;
     top: 10px;
@@ -140,7 +146,7 @@ footer {
 }
 
 footer a img {
-    width: 40px; /* Increase from 30px to 40px */
-    height: 40px; /* Increase from 30px to 40px */
-    margin: 0 15px; /* Increase the margin to space out the larger icons */
+    width: 50px;
+    height: 50px;
+    margin: 0 60px;
 }
