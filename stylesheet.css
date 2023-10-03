@@ -142,12 +142,17 @@ footer {
     }
 
     #slideshow {
-        /*max-width: 100%;*/
+        width: 100%;
+        height: auto;
     }
 
     footer a img {
         width: 40px;
         height: 40px;
         margin: 0 15px;
+    }
+
+    #main-menu-page {
+        margin: 60px 0;
     }
 }
