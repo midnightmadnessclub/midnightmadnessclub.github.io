@@ -94,10 +94,10 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% - 60px); /* Adjust based on footer height */
-    object-fit: contain; /* Ensure entire image is visible */
-    object-position: center; /* Center the image within its container */
-    background-color: #000; /* Provide a background in case image doesn't cover the whole area */
+    height: calc(100% - 60px); 
+    object-fit: contain; 
+    object-position: center; 
+    background-color: #000; 
     z-index: 1;
 }
 
