@@ -106,14 +106,15 @@ header {
     display: flex;
     justify-content: left;
     align-items: center;
-    height: 500px;
+    height: auto;
+    padding: 20px 0;
 }
 
 #performers-photos .carousel-item {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
     #performers-photos .carousel-item img {
@@ -126,6 +127,7 @@ header {
     }
 
 #performers-photos #performers-carousel {
+    position: relative;
     max-width: 60%;
     margin: auto;
     outline: red;
@@ -139,7 +141,23 @@ header {
     right: 10%;
 }
 
+#performers-photos .carousel-indicators {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+}
 
+
+#performers-photos .carousel-label {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 24px;
+}
 
 /* Footer with Social Media Links */
 footer {
