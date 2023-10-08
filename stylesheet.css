@@ -1,3 +1,4 @@
+/* === FONT DECLARATIONS === */
 @font-face {
     font-family: Simplicity;
     src: url('./fonts/Simplicity.otf');
@@ -8,11 +9,13 @@
     src: url('./fonts/Alice.ttf');
 }
 
+/* === VARIABLES === */
 :root {
     --primary-color: #c40414;
     --background-color: black;
 }
 
+/* === BASE STYLES === */
 html, body {
     width: 100%;
     height: 100%;
@@ -28,6 +31,7 @@ header {
     letter-spacing: 4px;
 }
 
+/* === MENU TOGGLE & CLOSE BUTTON STYLES === */
 #menu-toggle, #menu-close {
     position: absolute;
     top: 10px;
@@ -52,6 +56,7 @@ header {
         outline: none;
     }
 
+/* === MAIN NAVIGATION STYLES === */
 #main-nav {
     display: none;
     position: fixed;
@@ -83,7 +88,8 @@ header {
                 color: var(--primary-color);
             }
 
-#slideshow {
+/* === MAIN IMAGE STYLES === */
+#flyer-img {
     position: absolute;
     top: 0;
     left: 0;
@@ -95,6 +101,7 @@ header {
     z-index: 1;
 }
 
+/* === EVENT PAGE SLIDESHOW STYLES === */
 #performers-photos .carousel-inner {
     display: flex;
     justify-content: left;
@@ -150,6 +157,7 @@ header {
     font-size: 24px;
 }
 
+/* === FOOTER STYLES === */
 footer {
     position: fixed;
     bottom: 0;
@@ -168,6 +176,8 @@ footer {
         margin: 0 20px;
     }
 
+/* === RESPONSIVE STYLES === */
+/* Mobile styles */
 @media only screen and (max-width: 767px) {
     #main-nav {
         font-size: 30px;
@@ -183,6 +193,7 @@ footer {
     }
 }
 
+/* Tablet styles */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
     #slideshow {
         width: 85%;
@@ -200,6 +211,7 @@ footer {
     }
 }
 
+/* Desktop styles */
 @media only screen and (min-width: 1024px) {
     #slideshow {
         width: 75%;
