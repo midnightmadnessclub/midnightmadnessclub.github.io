@@ -1,4 +1,4 @@
-/* Fonts */
+/* === FONT DECLARATIONS === */
 @font-face {
     font-family: Simplicity;
     src: url('./fonts/Simplicity.otf');
@@ -9,13 +9,13 @@
     src: url('./fonts/Alice.ttf');
 }
 
-/* CSS Variables */
+/* === VARIABLES === */
 :root {
     --primary-color: #c40414;
     --background-color: black;
 }
 
-/* Base Styles */
+/* === BASE STYLES === */
 html, body {
     width: 100%;
     height: 100%;
@@ -31,7 +31,7 @@ header {
     letter-spacing: 4px;
 }
 
-/* Menu Toggle & Close */
+/* === MENU TOGGLE & CLOSE BUTTON STYLES === */
 #menu-toggle, #menu-close {
     position: absolute;
     top: 10px;
@@ -56,7 +56,7 @@ header {
         outline: none;
     }
 
-/* Main Nav */
+/* === MAIN NAVIGATION STYLES === */
 #main-nav {
     display: none;
     position: fixed;
@@ -88,8 +88,8 @@ header {
                 color: var(--primary-color);
             }
 
-/* Full-Page Image */
-#slideshow {
+/* === MAIN IMAGE STYLES === */
+#flyer-img {
     position: absolute;
     top: 0;
     left: 0;
@@ -101,7 +101,7 @@ header {
     z-index: 1;
 }
 
-/* Events Page Slideshow */
+/* === EVENT PAGE SLIDESHOW STYLES === */
 #performers-photos .carousel-inner {
     display: flex;
     justify-content: left;
@@ -130,7 +130,6 @@ header {
     position: relative;
     max-width: 60%;
     margin: auto;
-    outline: red;
 }
 
 #performers-photos .carousel-control-prev {
@@ -151,7 +150,6 @@ header {
     z-index: 2;
 }
 
-
 #performers-photos .carousel-label {
     color: white;
     text-align: center;
@@ -159,7 +157,7 @@ header {
     font-size: 24px;
 }
 
-/* Footer with Social Media Links */
+/* === FOOTER STYLES === */
 footer {
     position: fixed;
     bottom: 0;
@@ -178,7 +176,42 @@ footer {
         margin: 0 20px;
     }
 
-/* Desktop Specific Styles */
+/* === RESPONSIVE STYLES === */
+/* Mobile styles */
+@media only screen and (max-width: 767px) {
+    #main-nav {
+        font-size: 30px;
+    }
+
+    #menu-toggle, #menu-close {
+        font-size: 30px;
+    }
+
+    #performers-photos .carousel-item img {
+        width: 70%;
+        height: auto;
+    }
+}
+
+/* Tablet styles */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    #slideshow {
+        width: 85%;
+        left: 7.5%;
+        height: 100%;
+    }
+
+    #menu-toggle, #menu-close {
+        font-size: 40px;
+    }
+
+    #performers-photos .carousel-item img {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+/* Desktop styles */
 @media only screen and (min-width: 1024px) {
     #slideshow {
         width: 75%;
