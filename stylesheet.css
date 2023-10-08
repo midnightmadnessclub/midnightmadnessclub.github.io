@@ -101,6 +101,46 @@ header {
     z-index: 1;
 }
 
+/* Events Page Slideshow */
+#performers-photos .carousel-inner {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 500px;
+}
+
+#performers-photos .carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+    #performers-photos .carousel-item img {
+        width: 500px;
+        height: 500px;
+        object-fit: cover;
+        display: block;
+        margin: auto;
+        border: 3px solid var(--primary-color);
+    }
+
+#performers-photos #performers-carousel {
+    max-width: 60%;
+    margin: auto;
+    outline: red;
+}
+
+#performers-photos .carousel-control-prev {
+    left: 10%;
+}
+
+#performers-photos .carousel-control-next {
+    right: 10%;
+}
+
+
+
 /* Footer with Social Media Links */
 footer {
     position: fixed;
