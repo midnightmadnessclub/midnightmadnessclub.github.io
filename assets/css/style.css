@@ -287,7 +287,7 @@ section {
   margin-bottom: 30px;
 }
 
-.photography #photography-flters {
+.photography #photography-filters {
   padding: 0;
   margin: 0 auto 35px auto;
   list-style: none;
@@ -298,7 +298,7 @@ section {
   padding: 2px 15px;
 }
 
-.photography #photography-flters li {
+.photography #photography-filters li {
   cursor: pointer;
   display: inline-block;
   padding: 10px 15px 8px 15px;
@@ -311,12 +311,15 @@ section {
   transition: all 0.3s ease-in-out;
 }
 
-.photography #photography-flters li:hover,
-.photography #photography-flters li.filter-active {
+.photography #photography-filters li:hover {
   color: var(--colour-hover);
 }
 
-.photography #photography-flters li:last-child {
+.photography #photography-filters li.filter-active {
+  color: var(--colour-primary); 
+}
+
+.photography #photography-filters li:last-child {
   margin-right: 0;
 }
 

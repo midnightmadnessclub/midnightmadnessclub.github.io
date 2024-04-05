@@ -1,11 +1,3 @@
-/**
-* Template Name: iPortfolio
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Updated: Mar 17 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 (function() {
   "use strict";
 
@@ -144,45 +136,28 @@
   }
 
   /**
-   * Skills animation
-   */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
-  }
-
-  /**
-   * Porfolio isotope and filter
+   * Photography isotope and filter
    */
   window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
+    let photographyContainer = select('.photography-container');
+    if (photographyContainer) {
+      let photographyIsotope = new Isotope(photographyContainer, {
+        itemSelector: '.photography-item'
       });
 
-      let portfolioFilters = select('#portfolio-flters li', true);
+      let photographyFilters = select('#photography-filters li', true);
 
-      on('click', '#portfolio-flters li', function(e) {
+      on('click', '#photography-filters li', function(e) {
         e.preventDefault();
-        portfolioFilters.forEach(function(el) {
+        photographyFilters.forEach(function(el) {
           el.classList.remove('filter-active');
         });
         this.classList.add('filter-active');
 
-        portfolioIsotope.arrange({
+        photographyIsotope.arrange({
           filter: this.getAttribute('data-filter')
         });
-        portfolioIsotope.on('arrangeComplete', function() {
+        photographyIsotope.on('arrangeComplete', function() {
           AOS.refresh()
         });
       }, true);
@@ -191,16 +166,16 @@
   });
 
   /**
-   * Initiate portfolio lightbox 
+   * Initiate photography lightbox 
    */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
+  const photographyLightbox = GLightbox({
+    selector: '.photography-lightbox'
   });
 
   /**
-   * Portfolio details slider
+   * photography details slider
    */
-  new Swiper('.portfolio-details-slider', {
+  new Swiper('.photography-details-slider', {
     speed: 400,
     loop: true,
     autoplay: {
@@ -211,35 +186,6 @@
       el: '.swiper-pagination',
       type: 'bullets',
       clickable: true
-    }
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
     }
   });
 
