@@ -81,14 +81,12 @@
     onscroll(document, toggleBacktotop)
   }
 
-  /**
-   * Mobile nav toggle
-   */
+  // Mobile nav toggle
   on('click', '.mobile-nav-toggle', function(e) {
-    select('body').classList.toggle('mobile-nav-active')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
+    select('body').classList.toggle('mobile-nav-active');
+    this.classList.toggle('bi-list');
+    this.classList.toggle('bi-x');
+  });
 
   /**
    * Scrool with ofset on links with a class name .scrollto
