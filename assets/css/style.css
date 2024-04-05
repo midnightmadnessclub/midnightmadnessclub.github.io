@@ -178,6 +178,7 @@ h6 {
   .mobile-nav-active #header {
     transform: translateX(0);
   }
+
 }
 
 
@@ -203,6 +204,13 @@ h6 {
 section {
   padding: 60px 0;
   overflow: hidden;
+  margin-left: 10%;
+}
+
+@media (max-width: 991px) {
+  section {
+    margin-left: 0%;
+  }
 }
 
 .section-bg {
@@ -243,7 +251,6 @@ section {
 .about{
   background-color: var(--colour-background);
   color: var(--colour-text);
-  margin-left: 10%;
 }
 
 .about i {
@@ -292,7 +299,6 @@ section {
 .photography {
   background-color: var(--colour-background);
   color: var(--colour-text);
-  margin-left: 10%;
 }
 
 .photography .photography-item {
@@ -468,7 +474,6 @@ section {
 .events{
   background-color: var(--colour-background);
   color: var(--colour-text);
-  margin-left: 10%;
 }
 
 .events i {
