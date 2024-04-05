@@ -136,7 +136,24 @@
   }
 
   /**
-   * Photography isotope and filter
+   * Skills animation
+   */
+  let skilsContent = select('.skills-content');
+  if (skilsContent) {
+    new Waypoint({
+      element: skilsContent,
+      offset: '80%',
+      handler: function(direction) {
+        let progress = select('.progress .progress-bar', true);
+        progress.forEach((el) => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%'
+        });
+      }
+    })
+  }
+
+  /**
+   * Porfolio isotope and filter
    */
   window.addEventListener('load', () => {
     let photographyContainer = select('.photography-container');
@@ -145,9 +162,9 @@
         itemSelector: '.photography-item'
       });
 
-      let photographyFilters = select('#photography-filters li', true);
+      let photographyFilters = select('#photography-flters li', true);
 
-      on('click', '#photography-filters li', function(e) {
+      on('click', '#photography-flters li', function(e) {
         e.preventDefault();
         photographyFilters.forEach(function(el) {
           el.classList.remove('filter-active');
@@ -173,7 +190,7 @@
   });
 
   /**
-   * photography details slider
+   * Photography details slider
    */
   new Swiper('.photography-details-slider', {
     speed: 400,
@@ -186,6 +203,35 @@
       el: '.swiper-pagination',
       type: 'bullets',
       clickable: true
+    }
+  });
+
+  /**
+   * Testimonials slider
+   */
+  new Swiper('.testimonials-slider', {
+    speed: 600,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      }
     }
   });
 
