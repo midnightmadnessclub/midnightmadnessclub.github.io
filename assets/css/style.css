@@ -1,0 +1,544 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+:root {
+  --colour-primary: #c40414;
+  --colour-secondary: #c80315;
+  --colour-hover: #7c040e;
+  --colour-bright: #fc3444;
+  --colour-background: #000000;
+  --colour-text: #ffffff;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: var(--colour-background);
+}
+
+a {
+  color: var(--colour-secondary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var();
+  text-decoration: none;
+}
+
+p {
+  color: var(--colour-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: var(--colour-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.back-to-top i {
+  font-size: 28px;
+  color: var(--colour-text);
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: var(--colour-primary);
+  color: var(--colour-text);
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  transition: all ease-in-out 0.5s;
+  z-index: 9997;
+  transition: all 0.5s;
+  background: var(--colour-background);
+  overflow-y: auto;
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+.nav-menu {
+  padding: 30px 0 0 0;
+}
+
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu>ul>li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-menu a,
+.nav-menu a:focus {
+  display: flex;
+  align-items: center;
+  color: var(--colour-secondary);
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.nav-menu a i,
+.nav-menu a:focus i {
+  font-size: 24px;
+  padding-right: 8px;
+  color: var(--colour-secondary);
+}
+
+.nav-menu a:hover,
+.nav-menu .active,
+.nav-menu .active:focus,
+.nav-menu li:hover>a {
+  text-decoration: none;
+  color: var(--colour-hover);
+}
+
+.nav-menu a:hover i,
+.nav-menu .active i,
+.nav-menu .active:focus i,
+.nav-menu li:hover>a i {
+  color: var(--colour-hover);
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 9998;
+  border: 0;
+  font-size: 24px;
+  transition: all 0.4s;
+  outline: none !important;
+  background-color: var(--colour-background);
+  color: var(--colour-secondary);
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.mobile-nav-active {
+  overflow: hidden;
+}
+
+.mobile-nav-active #header {
+  left: 0;
+}
+
+/*--------------------------------------------------------------
+# Home Section
+--------------------------------------------------------------*/
+#home {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/home-bg.jpg") top center;
+  background-size: cover;
+}
+
+@media (min-width: 1024px) {
+  #home {
+    background-attachment: fixed;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.section-bg {
+  background: var(--colour-background);
+}
+
+.section-title {
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: var(--colour-primary);
+}
+
+.section-title h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--colour-secondary);
+  bottom: 0;
+  left: 0;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.about{
+  background-color: var(--colour-background);
+  color: var(--colour-text);
+  margin-left: 10%;
+}
+
+.about i {
+  color: var(--colour-primary);
+}
+
+.about .content h3 {
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--colour-primary);
+}
+
+.about h4 {
+  font-size: 20px;
+}
+
+.about .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about .content ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.about .content ul strong {
+  margin-right: 10px;
+}
+
+.about .content ul i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: var(--colour-primary);
+  line-height: 0;
+}
+
+.about .content p:last-child {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Photography
+--------------------------------------------------------------*/
+.photography {
+  background-color: var(--colour-background);
+  color: var(--colour-text);
+  margin-left: 10%;
+}
+
+.photography .photography-item {
+  margin-bottom: 30px;
+}
+
+.photography #photography-flters {
+  padding: 0;
+  margin: 0 auto 35px auto;
+  list-style: none;
+  text-align: center;
+  background: var(--colour-background);
+  color: var(--colour-text);
+  border-radius: 50px;
+  padding: 2px 15px;
+}
+
+.photography #photography-flters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 15px 8px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--colour-text);
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.photography #photography-flters li:hover,
+.photography #photography-flters li.filter-active {
+  color: var(--colour-hover);
+}
+
+.photography #photography-flters li:last-child {
+  margin-right: 0;
+}
+
+.photography .photography-wrap {
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.photography .photography-wrap::before {
+  content: "";
+  background: rgba(5, 13, 24, 0.08);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all ease-in-out 0.3s;
+  z-index: 2;
+  opacity: 0;
+}
+
+.photography .photography-wrap .photography-links {
+  opacity: 1;
+  left: 0;
+  right: 0;
+  bottom: -60px;
+  z-index: 3;
+  position: absolute;
+  transition: all ease-in-out 0.3s;
+  display: flex;
+  justify-content: center;
+}
+
+.photography .photography-wrap .photography-links a {
+  color: var(--colour-text);
+  font-size: 28px;
+  text-align: center;
+  background: var(--colour-primary);
+  transition: 0.3s;
+  width: 50%;
+}
+
+.photography .photography-wrap .photography-links a:hover {
+  background: var(--colour-primary);
+}
+
+.photography .photography-wrap .photography-links a+a {
+  border-left: 1px solid var(--colour-primary);
+}
+
+.photography .photography-wrap:hover::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+}
+
+.photography .photography-wrap:hover .photography-links {
+  opacity: 1;
+  bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Photography Details
+--------------------------------------------------------------*/
+.photography-details {
+  padding-top: 40px;
+}
+
+.photography-details .photography-details-slider img {
+  width: 100%;
+}
+
+.photography-details .photography-details-slider .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.photography-details .photography-details-slider .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: var(--colour-text);
+  opacity: 1;
+  border: 1px solid var(--colour-primary);
+}
+
+.photography-details .photography-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: var(--colour-primary);
+}
+
+.photography-details .photography-info {
+  padding: 30px;
+  box-shadow: 0px 0 30px rgba(5, 13, 24, 0.08);
+}
+
+.photography-details .photography-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--colour-text);
+}
+
+.photography-details .photography-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.photography-details .photography-info ul li+li {
+  margin-top: 10px;
+}
+
+.photography-details .photography-description {
+  padding-top: 30px;
+}
+
+.photography-details .photography-description h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.photography-details .photography-description p {
+  padding: 0;
+}
+
+/*--------------------------------------------------------------
+# Events
+--------------------------------------------------------------*/
+.events{
+  background-color: var(--colour-background);
+  color: var(--colour-text);
+  margin-left: 10%;
+}
+
+.events i {
+  color: var(--colour-primary);
+}
+
+.events .content h3 {
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--colour-primary);
+}
+
+.events h4 {
+  font-size: 20px;
+}
+
+.events .content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.events .content ul li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.events .content ul strong {
+  margin-right: 10px;
+}
+
+.events .content ul i {
+  font-size: 16px;
+  margin-right: 5px;
+  color: var(--colour-primary);
+  line-height: 0;
+}
+
+.events .content p:last-child {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Breadcrumbs
+--------------------------------------------------------------*/
+.breadcrumbs {
+  padding: 20px 0;
+  background: #f9f9f9;
+}
+
+.breadcrumbs h2 {
+  font-size: 26px;
+  font-weight: 300;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+}
+
+.breadcrumbs ol li+li {
+  padding-left: 10px;
+}
+
+.breadcrumbs ol li+li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: #0e2442;
+  content: "/";
+}
+
+@media (max-width: 768px) {
+  .breadcrumbs .d-flex {
+    display: block !important;
+  }
+
+  .breadcrumbs ol {
+    display: block;
+  }
+
+  .breadcrumbs ol li {
+    display: inline-block;
+  }
+}
