@@ -21,7 +21,7 @@ a {
 }
 
 a:hover {
-  color: var();
+  color: var(--colour-hover);
   text-decoration: none;
 }
 
@@ -62,7 +62,7 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: var(--colour-primary);
+  background: var(--colour-hover);
   color: var(--colour-text);
 }
 
@@ -82,7 +82,6 @@ h6 {
   width: 300px;
   transition: all ease-in-out 0.5s;
   z-index: 9997;
-  transition: all 0.5s;
   background: var(--colour-background);
   overflow-y: auto;
 }
@@ -178,9 +177,7 @@ h6 {
   .mobile-nav-active #header {
     transform: translateX(0);
   }
-
 }
-
 
 /*--------------------------------------------------------------
 # Home Section
@@ -248,7 +245,7 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
-.about{
+.about {
   background-color: var(--colour-background);
   color: var(--colour-text);
 }
@@ -334,7 +331,7 @@ section {
 }
 
 .photography #photography-filters li.filter-active {
-  color: var(--colour-primary); 
+  color: var(--colour-primary);
 }
 
 .photography #photography-filters li:last-child {
@@ -383,7 +380,7 @@ section {
 }
 
 .photography .photography-wrap .photography-links a:hover {
-  background: var(--colour-primary);
+  background: var(--colour-hover);
 }
 
 .photography .photography-wrap .photography-links a+a {
@@ -401,6 +398,15 @@ section {
 .photography .photography-wrap:hover .photography-links {
   opacity: 1;
   bottom: 0;
+}
+
+/* Hide all items by default and show only those matching the active filter */
+.photography-container .photography-item {
+  display: none;
+}
+
+.photography-container .filter-active {
+  display: block;
 }
 
 /*--------------------------------------------------------------
@@ -471,7 +477,7 @@ section {
 /*--------------------------------------------------------------
 # Events
 --------------------------------------------------------------*/
-.events{
+.events {
   background-color: var(--colour-background);
   color: var(--colour-text);
 }
@@ -516,49 +522,81 @@ section {
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Breadcrumbs
---------------------------------------------------------------*/
-.breadcrumbs {
-  padding: 20px 0;
-  background: #f9f9f9;
+.event-container {
+    background-color: #0f0f0f;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: var(--colour-text);
 }
 
-.breadcrumbs h2 {
-  font-size: 26px;
-  font-weight: 300;
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.breadcrumbs ol {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 15px;
+.event-header div {
+    display: flex;
+    align-items: center;
 }
 
-.breadcrumbs ol li+li {
-  padding-left: 10px;
+.event-date {
+    background-color: var(--colour-hover);;
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 16px;
 }
 
-.breadcrumbs ol li+li::before {
-  display: inline-block;
-  padding-right: 10px;
-  color: #0e2442;
-  content: "/";
+.event-title {
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
-@media (max-width: 768px) {
-  .breadcrumbs .d-flex {
-    display: block !important;
-  }
-
-  .breadcrumbs ol {
-    display: block;
-  }
-
-  .breadcrumbs ol li {
-    display: inline-block;
-  }
+.event-location {
+    margin-top: 10px;
+    color: #ffffff;
 }
+
+.event-location i {
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+.event-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.buy-tickets-btn {
+  background-color: var(--colour-primary);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: var(--colour-text);
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.buy-tickets-btn:hover {
+  background-color: var(--colour-hover);
+  transform: scale(1.05);
+}
+
+.coming-soon-btn {
+  background-color: #2e2e2e;
+  color: #c9c9c9;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+

@@ -89,7 +89,7 @@
   });
 
   /**
-   * Scrool with ofset on links with a class name .scrollto
+   * Scroll with offset on links with a class name .scrollto
    */
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
@@ -107,7 +107,7 @@
   }, true)
 
   /**
-   * Scroll with ofset on page load with hash links in the url
+   * Scroll with offset on page load with hash links in the URL
    */
   window.addEventListener('load', () => {
     if (window.location.hash) {
@@ -118,66 +118,33 @@
   });
 
   /**
-   * Hero type effect
-   */
-  const typed = select('.typed')
-  if (typed) {
-    let typed_strings = typed.getAttribute('data-typed-items')
-    typed_strings = typed_strings.split(',')
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
-    });
-  }
-
-  /**
-   * Skills animation
-   */
-  let skilsContent = select('.skills-content');
-  if (skilsContent) {
-    new Waypoint({
-      element: skilsContent,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = select('.progress .progress-bar', true);
-        progress.forEach((el) => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%'
-        });
-      }
-    })
-  }
-
-  /**
-   * Porfolio isotope and filter
+   * Photography isotope and filter
    */
   window.addEventListener('load', () => {
     let photographyContainer = select('.photography-container');
     if (photographyContainer) {
-      let photographyIsotope = new Isotope(photographyContainer, {
-        itemSelector: '.photography-item'
+      let photographyItems = photographyContainer.querySelectorAll('.photography-item');
+      let photographyFilters = document.querySelectorAll('#photography-filters li');
+
+      photographyFilters.forEach(filter => {
+        filter.addEventListener('click', function(e) {
+          e.preventDefault();
+          photographyFilters.forEach(f => f.classList.remove('filter-active'));
+          this.classList.add('filter-active');
+
+          let filterValue = this.getAttribute('data-filter');
+          photographyItems.forEach(item => {
+            item.style.display = item.classList.contains(filterValue.substring(1)) ? 'block' : 'none';
+          });
+        });
       });
 
-      let photographyFilters = select('#photography-flters li', true);
-
-      on('click', '#photography-flters li', function(e) {
-        e.preventDefault();
-        photographyFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        photographyIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        photographyIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
-        });
-      }, true);
+      // Initialize with the most recent album displayed
+      let activeFilter = document.querySelector('#photography-filters li.filter-active').getAttribute('data-filter');
+      photographyItems.forEach(item => {
+        item.style.display = item.classList.contains(activeFilter.substring(1)) ? 'block' : 'none';
+      });
     }
-
   });
 
   /**
@@ -205,35 +172,6 @@
   });
 
   /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
-
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
-  });
-
-  /**
    * Animation on scroll
    */
   window.addEventListener('load', () => {
@@ -250,4 +188,4 @@
    */
   new PureCounter();
 
-})()
+})();
