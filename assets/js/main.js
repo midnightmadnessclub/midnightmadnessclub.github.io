@@ -19,8 +19,8 @@
       visitSource = 'direct';
     }
 
-    // Log the visit
-    fetch('https://script.google.com/macros/s/AKfycbwGvZD_tuaSVBYwy2cjPCclf5sw_51-YwRReI14Gh0WYUVULfMWpElQAGLJhTrEL6LGsw/exec', {
+    // Log the visit using a CORS proxy
+    fetch('https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbwGvZD_tuaSVBYwy2cjPCclf5sw_51-YwRReI14Gh0WYUVULfMWpElQAGLJhTrEL6LGsw/exec', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
