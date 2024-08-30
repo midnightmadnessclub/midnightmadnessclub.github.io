@@ -19,16 +19,16 @@
       visitSource = 'direct';
     }
 
-    // Log the visit using a CORS proxy
-    fetch('https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbwGvZD_tuaSVBYwy2cjPCclf5sw_51-YwRReI14Gh0WYUVULfMWpElQAGLJhTrEL6LGsw/exec', {
+    // Log the visit using the Google Apps Script Web App
+    fetch('https://script.google.com/macros/s/AKfycbyvzT-GdQJjPRiwDN94uDsx5uIam0LNd_kjwsNgs4lBpMZMbL4NZ5qOxoacqGl7awix/exec', {
       method: 'POST',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ source: visitSource, timestamp: new Date().toISOString() })
     })
-    .then(response => response.json())
-    .then(data => console.log('Visit logged:', data))
+    .then(response => console.log('Visit logged'))
     .catch(error => console.error('Error logging visit:', error));
   };
 
