@@ -10,7 +10,7 @@
     const referrer = document.referrer || 'direct';
 
     // Log the visit using the Google Apps Script Web App
-    fetch('YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL', {
+    fetch('https://script.google.com/macros/s/AKfycbyvzT-GdQJjPRiwDN94uDsx5uIam0LNd_kjwsNgs4lBpMZMbL4NZ5qOxoacqGl7awix/exec', {
       method: 'POST',
       mode: 'no-cors',
       headers: {
