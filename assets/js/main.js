@@ -2,32 +2,41 @@
   "use strict";
 
   /**
-   * Log source visits
+   * Log source visits and direct/referral visits
    */
   const logSourceVisit = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const source = urlParams.get('source');
+    const referrer = document.referrer || 'direct';
 
+    // Determine the source
+    let visitSource;
     if (source) {
-      fetch('https://script.google.com/macros/s/AKfycbwGvZD_tuaSVBYwy2cjPCclf5sw_51-YwRReI14Gh0WYUVULfMWpElQAGLJhTrEL6LGsw/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ source: source, timestamp: new Date().toISOString() })
-      })
-      .then(response => response.json())
-      .then(data => console.log('Visit logged:', data))
-      .catch(error => console.error('Error logging visit:', error));
+      visitSource = source;
+    } else if (referrer !== 'direct') {
+      visitSource = `referral:${referrer}`;
+    } else {
+      visitSource = 'direct';
     }
+
+    // Log the visit
+    fetch('https://script.google.com/macros/s/AKfycbwGvZD_tuaSVBYwy2cjPCclf5sw_51-YwRReI14Gh0WYUVULfMWpElQAGLJhTrEL6LGsw/exec', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ source: visitSource, timestamp: new Date().toISOString() })
+    })
+    .then(response => response.json())
+    .then(data => console.log('Visit logged:', data))
+    .catch(error => console.error('Error logging visit:', error));
   };
 
   // Call logSourceVisit when the page loads
   window.addEventListener('load', logSourceVisit);
 
-  /**
-   * Easy selector helper function
-   */
+  // Existing functions and event listeners...
+
   const select = (el, all = false) => {
     el = el.trim()
     if (all) {
@@ -37,9 +46,6 @@
     }
   }
 
-  /**
-   * Easy event listener function
-   */
   const on = (type, el, listener, all = false) => {
     let selectEl = select(el, all)
     if (selectEl) {
@@ -51,16 +57,10 @@
     }
   }
 
-  /**
-   * Easy on scroll event listener 
-   */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
   }
 
-  /**
-   * Navbar links active state on scroll
-   */
   let navbarlinks = select('#navbar .scrollto', true)
   const navbarlinksActive = () => {
     let position = window.scrollY + 200
@@ -78,9 +78,6 @@
   window.addEventListener('load', navbarlinksActive)
   onscroll(document, navbarlinksActive)
 
-  /**
-   * Scrolls to an element with header offset
-   */
   const scrollto = (el) => {
     let elementPos = select(el).offsetTop
     window.scrollTo({
@@ -89,9 +86,6 @@
     })
   }
 
-  /**
-   * Back to top button
-   */
   let backtotop = select('.back-to-top')
   if (backtotop) {
     const toggleBacktotop = () => {
@@ -105,16 +99,12 @@
     onscroll(document, toggleBacktotop)
   }
 
-  // Mobile nav toggle
   on('click', '.mobile-nav-toggle', function(e) {
     select('body').classList.toggle('mobile-nav-active');
     this.classList.toggle('bi-list');
     this.classList.toggle('bi-x');
   });
 
-  /**
-   * Scroll with offset on links with a class name .scrollto
-   */
   on('click', '.scrollto', function(e) {
     if (select(this.hash)) {
       e.preventDefault()
@@ -130,9 +120,6 @@
     }
   }, true)
 
-  /**
-   * Scroll with offset on page load with hash links in the URL
-   */
   window.addEventListener('load', () => {
     if (window.location.hash) {
       if (select(window.location.hash)) {
@@ -141,9 +128,6 @@
     }
   });
 
-  /**
-   * Photography isotope and filter
-   */
   window.addEventListener('load', () => {
     let photographyContainer = select('.photography-container');
     if (photographyContainer) {
@@ -163,7 +147,6 @@
         });
       });
 
-      // Initialize with the most recent album displayed
       let activeFilter = document.querySelector('#photography-filters li.filter-active').getAttribute('data-filter');
       photographyItems.forEach(item => {
         item.style.display = item.classList.contains(activeFilter.substring(1)) ? 'block' : 'none';
@@ -171,16 +154,10 @@
     }
   });
 
-  /**
-   * Initiate photography lightbox 
-   */
   const photographyLightbox = GLightbox({
     selector: '.photography-lightbox'
   });
 
-  /**
-   * Photography details slider
-   */
   new Swiper('.photography-details-slider', {
     speed: 400,
     loop: true,
@@ -195,9 +172,6 @@
     }
   });
 
-  /**
-   * Animation on scroll
-   */
   window.addEventListener('load', () => {
     AOS.init({
       duration: 1000,
@@ -207,9 +181,6 @@
     })
   });
 
-  /**
-   * Initiate Pure Counter 
-   */
   new PureCounter();
 
 })();
