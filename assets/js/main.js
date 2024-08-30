@@ -6,8 +6,18 @@
    */
   const logSourceVisit = () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const source = urlParams.get('source') || 'direct';  // Default to 'direct' if no source is provided
+    const source = urlParams.get('source');
     const referrer = document.referrer || 'direct';
+
+    // Determine the source
+    let visitSource;
+    if (source) {
+      visitSource = source;
+    } else if (referrer !== 'direct') {
+      visitSource = `referral:${referrer}`;
+    } else {
+      visitSource = 'direct';
+    }
 
     // Log the visit using the Google Apps Script Web App
     fetch('https://script.google.com/macros/s/AKfycbyvzT-GdQJjPRiwDN94uDsx5uIam0LNd_kjwsNgs4lBpMZMbL4NZ5qOxoacqGl7awix/exec', {
@@ -16,9 +26,9 @@
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ source: source, timestamp: new Date().toISOString() })
+      body: JSON.stringify({ source: visitSource, timestamp: new Date().toISOString() })
     })
-    .then(response => console.log('Visit logged:', source))
+    .then(response => console.log('Visit logged'))
     .catch(error => console.error('Error logging visit:', error));
   };
 
