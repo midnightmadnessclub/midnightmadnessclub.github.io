@@ -2,6 +2,30 @@
   "use strict";
 
   /**
+   * Log source visits
+   */
+  const logSourceVisit = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const source = urlParams.get('source');
+
+    if (source) {
+      fetch('https://script.google.com/macros/s/AKfycbwGvZD_tuaSVBYwy2cjPCclf5sw_51-YwRReI14Gh0WYUVULfMWpElQAGLJhTrEL6LGsw/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ source: source, timestamp: new Date().toISOString() })
+      })
+      .then(response => response.json())
+      .then(data => console.log('Visit logged:', data))
+      .catch(error => console.error('Error logging visit:', error));
+    }
+  };
+
+  // Call logSourceVisit when the page loads
+  window.addEventListener('load', logSourceVisit);
+
+  /**
    * Easy selector helper function
    */
   const select = (el, all = false) => {
