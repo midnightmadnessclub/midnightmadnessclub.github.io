@@ -8,11 +8,25 @@
   --colour-bright: #fc3444;
   --colour-background: #000000;
   --colour-text: #ffffff;
+  --colour-container: #0f0f0f;
 }
 
 body {
   font-family: "Open Sans", sans-serif;
-  color: var(--colour-background);
+  background-color: var(--colour-background);
+  margin: 0;
+
+}
+
+main {
+  padding-left: 150px;
+  padding-right: 50px;
+}
+
+@media (max-width: 991px) {
+  main {
+    padding: 0;
+  }
 }
 
 a {
@@ -22,19 +36,18 @@ a {
 
 a:hover {
   color: var(--colour-hover);
-  text-decoration: none;
 }
 
 p {
   color: var(--colour-text);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
 
@@ -71,6 +84,53 @@ h6 {
   opacity: 1;
 }
 
+@media (max-width: 991px) {
+  .back-to-top {
+    display: none;
+  }
+}
+
+/*--------------------------------------------------------------
+# Back to navbar button
+--------------------------------------------------------------*/
+.back-to-navbar {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: var(--colour-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.4s;
+}
+
+.back-to-navbar i {
+  font-size: 28px;
+  color: var(--colour-text);
+  line-height: 0;
+}
+
+.back-to-navbar:hover {
+  background: var(--colour-hover);
+  color: var(--colour-text);
+}
+
+.back-to-navbar.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 991px) {
+  .back-to-navbar {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -78,18 +138,46 @@ h6 {
   position: fixed;
   top: 0;
   left: 0;
-  bottom: 0;
   width: 300px;
-  transition: all ease-in-out 0.5s;
   z-index: 9997;
   background: var(--colour-background);
   overflow-y: auto;
+  transition: all ease-in-out 0.5s;
+}
+
+/* Mobile Header adjustments */
+@media (max-width: 991px) {
+  #header {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    background-color: var(--colour-background);
+    transition: none;
+  }
+}
+
+/*--------------------------------------------------------------
+# Background Video
+--------------------------------------------------------------*/
+#background-video {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  z-index: -1;
+  object-fit: cover;
+}
+
+@media (max-width: 991px) {
+  #background-video {
+    display: none;
+  }
 }
 
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-/* Desktop Navigation */
 .nav-menu {
   padding: 30px 0 0 0;
 }
@@ -105,8 +193,7 @@ h6 {
   white-space: nowrap;
 }
 
-.nav-menu a,
-.nav-menu a:focus {
+.nav-menu a {
   display: flex;
   align-items: center;
   color: var(--colour-secondary);
@@ -116,66 +203,42 @@ h6 {
   font-size: 15px;
 }
 
-.nav-menu a i,
-.nav-menu a:focus i {
-  font-size: 24px;
-  padding-right: 8px;
-  color: var(--colour-secondary);
-}
-
-.nav-menu a:hover,
-.nav-menu .active,
-.nav-menu .active:focus,
-.nav-menu li:hover>a {
-  text-decoration: none;
+.nav-menu a:hover, .nav-menu .active {
   color: var(--colour-hover);
-}
-
-.nav-menu a:hover i,
-.nav-menu .active i,
-.nav-menu .active:focus i,
-.nav-menu li:hover>a i {
-  color: var(--colour-hover);
-}
-
-/* Mobile Navigation */
-.mobile-nav-toggle {
-  position: fixed;
-  right: 15px;
-  top: 15px;
-  z-index: 9998;
-  border: 0;
-  font-size: 24px;
-  transition: all 0.4s;
-  outline: none !important;
-  background-color: var(--colour-background);
-  color: var(--colour-secondary);
-  width: 40px;
-  height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 0;
-  border-radius: 50px;
-  cursor: pointer;
-}
-
-.mobile-nav-active {
-  overflow: hidden;
-}
-
-.mobile-nav-active #header {
-  left: 0;
 }
 
 @media (max-width: 991px) {
-  #header {
-    transform: translateX(-100%);
-    transition: transform 0.5s ease-in-out;
+  .nav-menu {
+    justify-content: center;
+    align-items: center;
   }
 
-  .mobile-nav-active #header {
-    transform: translateX(0);
+  .nav-menu a {
+    color: var(--colour-text);
+    background-color: var(--colour-container);
+    border-radius: 50px;
+    margin: 10px;
+  }
+
+  .nav-menu > ul {
+    display: flex;
+    flex-direction: row;
+
+    padding: 0;
+  }
+
+  .nav-menu > ul > li {
+    margin-bottom: 0;
+  }
+
+  .nav-menu a {
+    margin-bottom: 0;
+    padding: 12px 10px;
+  }
+
+  .nav-menu .active
+  {
+    color: var(--colour-text);
   }
 }
 
@@ -189,12 +252,6 @@ h6 {
   background-size: cover;
 }
 
-@media (min-width: 1024px) {
-  #home {
-    background-attachment: fixed;
-  }
-}
-
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
@@ -206,7 +263,19 @@ section {
 
 @media (max-width: 991px) {
   section {
-    margin: 0;
+    padding: 40px 20px;
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  .section-title h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 991px) {
+  .section-title h2 {
+    font-size: 20px;
   }
 }
 
@@ -308,7 +377,7 @@ section {
   list-style: none;
   text-align: center;
   background: var(--colour-background);
-  color: var(--colour-text);
+  color: var (--colour-text);
   border-radius: 50px;
   padding: 2px 15px;
 }
@@ -332,10 +401,6 @@ section {
 
 .photography #photography-filters li.filter-active {
   color: var(--colour-primary);
-}
-
-.photography #photography-filters li:last-child {
-  margin-right: 0;
 }
 
 .photography .photography-wrap {
@@ -400,78 +465,12 @@ section {
   bottom: 0;
 }
 
-/* Hide all items by default and show only those matching the active filter */
 .photography-container .photography-item {
   display: none;
 }
 
 .photography-container .filter-active {
   display: block;
-}
-
-/*--------------------------------------------------------------
-# Photography Details
---------------------------------------------------------------*/
-.photography-details {
-  padding-top: 40px;
-}
-
-.photography-details .photography-details-slider img {
-  width: 100%;
-}
-
-.photography-details .photography-details-slider .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.photography-details .photography-details-slider .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: var(--colour-text);
-  opacity: 1;
-  border: 1px solid var(--colour-primary);
-}
-
-.photography-details .photography-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--colour-primary);
-}
-
-.photography-details .photography-info {
-  padding: 30px;
-  box-shadow: 0px 0 30px rgba(5, 13, 24, 0.08);
-}
-
-.photography-details .photography-info h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--colour-text);
-}
-
-.photography-details .photography-info ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.photography-details .photography-info ul li+li {
-  margin-top: 10px;
-}
-
-.photography-details .photography-description {
-  padding-top: 30px;
-}
-
-.photography-details .photography-description h2 {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.photography-details .photography-description p {
-  padding: 0;
 }
 
 /*--------------------------------------------------------------
@@ -523,53 +522,45 @@ section {
 }
 
 .event-container {
-    background-color: #0f0f0f;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    color: var(--colour-text);
+  background-color: var(--colour-container);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: var(--colour-text);
 }
 
 .event-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.event-header div {
-    display: flex;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .event-date {
-    background-color: var(--colour-hover);;
-    padding: 8px 16px;
-    border-radius: 4px;
-    margin-right: 10px;
-    font-size: 16px;
+  background-color: var(--colour-hover);
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-size: 16px;
 }
 
 .event-title {
-    font-weight: bold;
-    font-size: 1.2em;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-left: 8px;
 }
 
 .event-location {
-    margin-top: 10px;
-    color: #ffffff;
-}
-
-.event-location i {
   margin-top: 10px;
-  color: #ffffff;
+  color: var(--colour-text);
 }
 
 .event-footer {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .buy-tickets-btn {
@@ -599,4 +590,122 @@ section {
   opacity: 0.6;
 }
 
+.sold-out-btn {
+  background-color: var(--colour-hover);
+  color: #c9c9c9;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
 
+@media (max-width: 500px) {
+  .event-location {
+    text-align: center;
+  }
+  .event-footer {
+    justify-content: center;
+  }
+  .event-header {
+    justify-content: center;
+  }
+}
+
+.eventbrite-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.eventbrite-container {
+  background-color: var(--colour-container);
+  border-radius: 25px;
+  padding: 20px;
+  margin-bottom: 80px;
+  width: fit-content;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: var(--colour-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .eventbrite-wrapper {
+    padding: 0 10px;
+  }
+
+  .eventbrite-container {
+    width: calc(100% - 20px);
+    margin-bottom: 40px;
+  }
+}
+
+.eventbrite-logo {
+  width: 200px;
+  margin-bottom: 5px;
+}
+
+.eventbrite-description {
+  color: var(--colour-text);
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.eventbrite-btn {
+  background-color: var(--colour-primary);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  color: var(--colour-text);
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+@media (max-width: 991px) {
+  .eventbrite-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+.eventbrite-btn:hover {
+  background-color: var(--colour-hover);
+}
+
+/*--------------------------------------------------------------
+# Social Media Section
+--------------------------------------------------------------*/
+.social-media {
+  background-color: var(--colour-background);
+  padding: 20px 0;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  font-size: 30px;
+  color: var(--colour-text);
+  border: 2px solid var(--colour-primary);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.social-icon:hover {
+  background-color: var(--colour-primary);
+  color: var(--colour-background);
+}
